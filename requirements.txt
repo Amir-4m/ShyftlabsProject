@@ -1,0 +1,9 @@
+Django==3.2.22
+djangorestframework==3.14.0
+psycopg2-binary==2.8.6
+python-decouple
+python-memcached
+requests
+PyJWT==2.8.0
+coreapi==2.3.3
+django-filter
