@@ -17,6 +17,7 @@ class StudentViewSet(viewsets.GenericViewSet,
     def perform_destroy(self, instance):
         instance.is_active = False
         instance.save()
+        instance.student_courses.all().update(is_active=False)
 
 
 class CourseViewSet(viewsets.GenericViewSet,
@@ -27,10 +28,6 @@ class CourseViewSet(viewsets.GenericViewSet,
     queryset = Course.objects.filter(is_active=True)
     pagination_class = CustomPagination
     serializer_class = CourseSerializer
-
-    def perform_destroy(self, instance):
-        instance.is_active = False
-        instance.save()
 
 
 class StudentCourseViewSet(viewsets.GenericViewSet,

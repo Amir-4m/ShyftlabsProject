@@ -18,8 +18,10 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class StudentCourseSerializer(serializers.ModelSerializer):
+    course_data = CourseSerializer(read_only=True, source='course')
+    student_data = StudentSerializer(read_only=True, source='student')
+
     class Meta:
         model = StudentCourse
         fields = '__all__'
         read_only_fields = ('is_active',)
-        depth = 1

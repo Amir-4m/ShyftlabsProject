@@ -77,7 +77,7 @@ class StudentCourse(BaseModelMixin):
         Course,
         verbose_name=_('Course'),
         related_name='student_courses',
-        on_delete=models.PROTECT
+        on_delete=models.CASCADE
     )
     score = models.CharField(
         verbose_name=_('Score'),
